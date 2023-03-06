@@ -1,0 +1,35 @@
+      // http://localhost:5160/GetWeatherForecastFormProductProject
+{
+  "Routes": [
+    {
+      "DownstreamPathTemplate": "/WeatherForecast",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 5257
+        }
+      ],
+      "RateLimitOptions": {
+        "ClientWhitelist": [
+
+        ],
+        "EnableRateLimiting": true,
+        "Period": "5s",
+        "PeriodTimespan": 1,
+        "Limit": 1
+      },
+      "FileCacheOptions": {
+        "TtlSeconds": 30,
+        "Region": "customercaching"
+      },
+      "UpstreamPathTemplate": "/GetWeatherForecastFormProductProject",
+      "UpstreamHttpMethod": [ "Get" ]
+    }
+  ]
+  //,
+  //"GlobalConfiguration": {
+  // "RequestIdKey": "X-Correlation-Id",
+  //  "BaseUrl": "http://localhost:5257"
+  //}
+}
